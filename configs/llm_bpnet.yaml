@@ -1,0 +1,40 @@
+
+defaults:
+  -  config.yaml
+  - _self_
+
+model_name: "llm_bpnet"
+
+
+model:
+  learning_rate: 0.0000477
+  use_lora: False
+  r: 8
+  lora_alpha: 32
+  lora_dropout: 0.1
+
+bpnet_model:
+  n_channels: 4
+  n_layers: 12
+  n_tracks: 2
+  n_filters: 512
+  first_layer_kernel_size: 11
+  final_kernel_size: 75
+  dilation: True  
+  kernel_size: 5
+  use_batchnorm: False
+
+training:
+  max_epochs: 100
+  patience: 10
+
+species_lm:
+  name: gagneurlab/SpeciesLM
+  model_revision: downstream_species_lm
+
+tokenizer:
+  stride: 1  
+  kmer_size: 6
+
+
+

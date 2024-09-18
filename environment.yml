@@ -1,0 +1,40 @@
+name: regulate-me2
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - numpy
+  - pandas
+  - scikit-learn
+  - scipy
+  - pyarrow
+  - fastparquet
+  - transformers
+  - pytorch=2.3.0
+  - torchvision=0.18.0
+  - torchaudio=2.3.0
+  # - pytorch-cuda=12.1
+  - pip:
+      - jsonschema
+      - jupyter
+      - jupyter-console
+      - jupyterlab
+      - nbconvert
+      - nbformat
+      - notebook
+      - wandb
+      - omegaconf
+      - lightning
+      - hydra-core
+      - hydra-optuna-sweeper
+      - torchinfo
+      - datasets
+      - peft
+      - captum
+      - modisco-lite
+      - tangermeme
+      - seaborn

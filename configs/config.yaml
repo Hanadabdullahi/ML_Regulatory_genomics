@@ -1,0 +1,77 @@
+# configs/config.yaml
+
+defaults:
+  - _self_
+
+seed: 42
+
+wandb:
+  project: regulate-me
+  entity: petersran
+
+hydra:
+  run:
+    dir: logs
+  sweep:
+    dir: logs
+
+model_name: bpnet
+
+
+data:
+  data_dir: data/saccharomyces_cerevisiae
+  model_dir: data/models
+  tif_seq_file: "S1_TIFs.txt"
+  dataset_file: "saccharomyces_cerevisiae_three_prime.parquet"
+  counts_file: "counts.pt"
+  counts_preprocessed_file: "processed_counts.pt"
+  preprocessed_file: "processed_dataset.parquet"
+  best_model_path: "data/best_models"
+
+  train_chroms: 
+    - "I"
+    - "II"
+    - "III"
+    - "IV"
+    - "V"
+    - "VI"
+    - "VIII"
+    - "IX"
+    - "X"
+    - "XI"
+    - "XII"
+    - "XIII"
+    - "XIV"
+    - "XVI"
+  val_chroms: 
+    - "XV"
+  test_chroms: 
+    - "VII"
+  seq_col: "three_prime_seq"
+  restrict_seq_len: True
+
+
+bpnet_model:
+  n_channels: 4
+  n_layers: 6
+  n_tracks: 2
+  n_filters: 128
+  first_layer_kernel_size: 11
+  final_kernel_size: 75
+  dilation: True
+  kernel_size: 3
+  use_batchnorm: False
+  learning_rate:  5e-4
+
+training:
+  batch_size: 32
+  max_epochs: 500
+  patience: 20
+  accelerator: 'auto'
+
+loss:
+  alpha: 0.2
+  beta: 0.8
+  profile_loss_type: multinomial
+  eps: 1e-6
+

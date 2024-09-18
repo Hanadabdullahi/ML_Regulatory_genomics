@@ -1,0 +1,33 @@
+method: bayes
+project: regulate-me 
+entity: petersran
+metric:
+  name: val_loss
+  goal: minimize
+parameters:
+  # BPNet mode
+  bpnet_model.n_filters: 
+    values: [ 256, 512]
+  bpnet_model.n_layers:
+    values: [12, 14]
+  bpnet_model.use_batchnorm:
+    values: [ False]
+  bpnet_model.dilation:
+    values: [True]
+  bpnet_model.kernel_size:
+    values: [3, 5]
+  bpnet_model.first_layer_kernel_size:
+    values: [ 11]
+  bpnet_model.final_kernel_size:
+    values: [ 75]
+
+  # Model
+  model.learning_rate:
+    distribution: log_uniform_values
+    min: 1e-5
+    max: 1e-4
+  # model.r:
+  #   values: [ 8, 16]
+  # model.lora_alpha:
+  #   values: [32, 64]
+

@@ -1,0 +1,29 @@
+
+defaults:
+  -  config.yaml
+  - _self_
+
+model_name: "lora"
+model:
+  learning_rate: 5e-4  # Changing the learning rate
+  use_lora: False
+  r: 8
+  lora_alpha: 32
+  lora_dropout: 0.1
+  unfreeze_layer: True
+
+training:
+  max_epochs: 50
+  patience: 10
+
+species_lm:
+  name: gagneurlab/SpeciesLM
+  model_revision: downstream_species_lm
+
+tokenizer:
+  stride: 1  
+  kmer_size: 6
+
+
+
+
