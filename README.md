@@ -1,4 +1,4 @@
-# Polyp
+# Project description.
 
 This repository contains code for building, training, and evaluating a neural network model for predicting gene expression profiles from DNA sequences using PyTorch Lightning and Hydra for configuration management.
 
